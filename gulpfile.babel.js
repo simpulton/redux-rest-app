@@ -11,6 +11,7 @@ import yargs    from 'yargs';
 import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
+import jsonServer from 'gulp-json-srv';
 import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpachHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
@@ -89,6 +90,12 @@ gulp.task('serve', () => {
   });
 });
 
+gulp.task('db', function () {
+	jsonServer.start({
+    data: 'server/api/db.json'
+  });
+});
+
 gulp.task('watch', ['serve']);
 
 gulp.task('component', () => {
@@ -110,4 +117,4 @@ gulp.task('component', () => {
     .pipe(gulp.dest(destPath));
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['serve', 'db']);
