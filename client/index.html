@@ -10,6 +10,8 @@
     <meta name="description" content="NG6-Starter by @AngularClass">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
+    <link rel="stylesheet" href="/assets/css/app.css" media="screen" title="no title" charset="utf-8">
+
     <!-- Material Design Lite -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
@@ -20,26 +22,27 @@
     <base href="/">
   </head>
   <body ng-app="app" ng-strict-di ng-cloak>
+    <div class="content mdl-layout mdl-js-layout mdl-layout--fixed-header is-upgraded" data-upgraded=",MaterialLayout">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">ANGULAR 2 with NGRX</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="https://angular.io/" target="_blank">ANGULAR 2</a>
+            <a class="mdl-navigation__link" href="https://github.com/ngrx/store" target="_blank">NGRX</a>
+            <a class="mdl-navigation__link" href="https://github.com/simpulton/ngrx-rest-app" target="_blank">SOURCE CODE</a>
+          </nav>
+        </div>
+      </header>
 
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">ANGULAR 2 with NGRX</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="https://angular.io/" target="_blank">ANGULAR 2</a>
-          <a class="mdl-navigation__link" href="https://github.com/ngrx/store" target="_blank">NGRX</a>
-          <a class="mdl-navigation__link" href="https://github.com/simpulton/ngrx-rest-app" target="_blank">SOURCE CODE</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="mdl-layout__content page-content">
-      <app class="mdl-grid">
-        <div class="mdl-spinner mdl-js-spinner is-active"></div>
-      </app>
-    </main>
+      <main class="mdl-layout__content page-content">
+        <app class="mdl-grid">
+          <div class="mdl-spinner mdl-js-spinner is-active"></div>
+        </app>
+      </main>
+    </div>
 
     <!-- Google Analytics: change UA-71073175-2 to be your site's ID -->
     <script>

@@ -1,41 +1,41 @@
+import angular from 'angular';
+
 const BASE_URL = 'http://localhost:3000/items/';
 
-class ItemsService {
-  constructor(http) {
-    this.items = store.select('items');
-    this.http = http;
+let ItemsActions = ($http) => {
+  'ngInject';
+
+  let loadItems = () => {
+    return (dispatch) => {
+      $http.get(BASE_URL)
+        .then(response => response.data)
+        .then(payload => ({ type: 'ADD_ITEMS', payload }))
+        .then(action => dispatch(action));
+    }
   }
 
-  loadItems() {
-    this.http.get(BASE_URL)
-      .then((response) => {
-        
-      })
-      .map(res => res.json())
-      .map(payload => ({ type: 'ADD_ITEMS', payload }))
-      .subscribe(action => this.store.dispatch(action));
+  let saveItem = (item) => {
+    (item.id) ? updateItem(item) : createItem(item);
   }
 
-  saveItem(item: Item) {
-    (item.id) ? this.updateItem(item) : this.createItem(item);
-  }
-
-  createItem(item: Item) {
-    this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+  let createItem = (item) => {
+    $http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
       .map(res => res.json())
       .map(payload => ({ type: 'CREATE_ITEM', payload }))
-      .subscribe(action => this.store.dispatch(action));
+      .subscribe(action => store.dispatch(action));
   }
 
-  updateItem(item: Item) {
-    this.http.put(`${BASE_URL}${item.id}`, JSON.stringify(item), HEADER)
-      .subscribe(action => this.store.dispatch({ type: 'UPDATE_ITEM', payload: item }));
+  let updateItem = (item) => {
+    $http.put(`${BASE_URL}${item.id}`, JSON.stringify(item), HEADER)
+      .subscribe(action => store.dispatch({ type: 'UPDATE_ITEM', payload: item }));
   }
 
-  deleteItem(item: Item) {
-    this.http.delete(`${BASE_URL}${item.id}`)
-      .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: item }));
+  let deleteItem = (item) => {
+    $http.delete(`${BASE_URL}${item.id}`)
+      .subscribe(action => store.dispatch({ type: 'DELETE_ITEM', payload: item }));
   }
+
+  return {loadItems, saveItem, createItem, updateItem, deleteItem};
 }
 
-export default ItemsService;
+export default ItemsActions;
