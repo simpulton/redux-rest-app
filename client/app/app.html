@@ -1,10 +1,6 @@
 <div class="mdl-cell mdl-cell--6-col">
-  <items-list [items]="items | async"
-    (selected)="selectItem($event)" (deleted)="deleteItem($event)">
-  </items-list>
+  <items-list></items-list>
 </div>
 <div class="mdl-cell mdl-cell--6-col">
-  <item-detail
-    (saved)="saveItem($event)" (cancelled)="resetItem($event)"
-    [item]="selectedItem | async">Select an Item</item-detail>
+  <item-detail>Select an Item</item-detail>
 </div>

@@ -15,19 +15,24 @@ let ItemsActions = ($http) => {
   }
 
   let saveItem = (item) => {
-    (item.id) ? updateItem(item) : createItem(item);
+    return (item.id) ? updateItem(item) : createItem(item);
   }
 
   let createItem = (item) => {
-    $http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
-      .map(res => res.json())
-      .map(payload => ({ type: 'CREATE_ITEM', payload }))
-      .subscribe(action => store.dispatch(action));
+    return (dispatch) => {
+      $http.post(`${BASE_URL}`, JSON.stringify(item))
+        .then(res => res.data)
+        .then(payload => ({ type: 'CREATE_ITEM', payload }))
+        .then(action => dispatch(action));
+    }
   }
 
   let updateItem = (item) => {
-    $http.put(`${BASE_URL}${item.id}`, JSON.stringify(item), HEADER)
-      .subscribe(action => store.dispatch({ type: 'UPDATE_ITEM', payload: item }));
+    delete item.$$hashKey;
+    return (dispatch) => {
+      $http.put(`${BASE_URL}${item.id}`, JSON.stringify(item))
+        .then(action => dispatch({ type: 'UPDATE_ITEM', payload: item }));
+    }
   }
 
   let deleteItem = (item) => {
@@ -41,7 +46,12 @@ let ItemsActions = ($http) => {
     return { type: 'SELECT_ITEM', payload: item };
   }
 
-  return {loadItems, saveItem, createItem, updateItem, deleteItem, selectItem};
+  let resetItem = () => {
+    let emptyItem = {id: null, name: '', description: ''};
+    return { type: 'SELECT_ITEM', payload: emptyItem };
+  }
+
+  return {loadItems, saveItem, createItem, updateItem, deleteItem, selectItem, resetItem};
 }
 
 export default ItemsActions;

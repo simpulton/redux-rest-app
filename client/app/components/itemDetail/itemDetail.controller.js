@@ -8,8 +8,13 @@ class ItemDetailController {
 
   mapStateToThis(state) {
     return {
-      selectedItem: state.selectedItem
+      selectedItem: Object.assign({}, state.selectedItem)
     }
+  }
+
+  save(item) {
+    this.saveItem(item);
+    this.resetItem();
   }
 }
 
