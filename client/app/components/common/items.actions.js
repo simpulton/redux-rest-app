@@ -1,5 +1,3 @@
-import angular from 'angular';
-
 const BASE_URL = 'http://localhost:3000/items/';
 
 let ItemsActions = ($http) => {
