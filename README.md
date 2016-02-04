@@ -1,5 +1,5 @@
-# An simple REST app built with Angular 1.x and ng-redux
-This is a REST app built with AngularJS, [ng-redux](https://github.com/wbuchwalter/ng-redux), ES6, Webpack, Gulp, and JSON Server. It illustrates storing state in one place via Redux, and then using controllers to "glue" that state to the views. JSON Server acts as a backend and allows us to articulate a CRUD API from a single JSON document.
+# A REST app with Angular 1.x and ng-redux
+This is a REST app built with AngularJS, [ng-redux](https://github.com/wbuchwalter/ng-redux), ES6, Webpack, Gulp, and JSON Server. It illustrates storing state in one place via ng-redux, and then using controllers to "glue" that state to the views. JSON Server acts as a backend and allows us to articulate a CRUD API from a single JSON document.
 
 ## Getting Started
 You will need `node` (`brew install node` or https://nodejs.org/en/) and `npm` (which ships with node).
