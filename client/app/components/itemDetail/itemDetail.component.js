@@ -7,7 +7,7 @@ let itemDetailComponent = {
   bindings: {},
   template,
   controller,
-  controllerAs: 'vm'
+  controllerAs: 'itemDetailVM'
 };
 
 export default itemDetailComponent;

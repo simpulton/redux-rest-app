@@ -35,7 +35,11 @@ let ItemsActions = ($http) => {
       .subscribe(action => store.dispatch({ type: 'DELETE_ITEM', payload: item }));
   }
 
-  return {loadItems, saveItem, createItem, updateItem, deleteItem};
+  let selectItem = (item) => {
+    return { type: 'SELECT_ITEM', payload: item };
+  }
+
+  return {loadItems, saveItem, createItem, updateItem, deleteItem, selectItem};
 }
 
 export default ItemsActions;

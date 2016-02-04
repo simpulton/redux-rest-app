@@ -1,6 +1,15 @@
 class ItemDetailController {
-  constructor() {
-    this.name = 'itemDetail';
+  constructor($ngRedux, $scope, ItemsActions) {
+    'ngInject';
+    let unsubscribe = $ngRedux.connect(this.mapStateToThis, ItemsActions)(this);
+
+    $scope.$on('$destroy', unsubscribe);
+  }
+
+  mapStateToThis(state) {
+    return {
+      selectedItem: state.selectedItem
+    }
   }
 }
 

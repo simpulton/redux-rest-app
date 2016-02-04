@@ -10,7 +10,8 @@ class ItemsListController {
 
   mapStateToThis(state) {
     return {
-      items: state.items
+      items: state.items,
+      selectedItem: state.selectedItem
     }
   }
 }
