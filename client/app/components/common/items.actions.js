@@ -31,8 +31,10 @@ let ItemsActions = ($http) => {
   }
 
   let deleteItem = (item) => {
-    $http.delete(`${BASE_URL}${item.id}`)
-      .subscribe(action => store.dispatch({ type: 'DELETE_ITEM', payload: item }));
+    return (dispatch) => {
+      $http.delete(`${BASE_URL}${item.id}`)
+        .then(action => dispatch({ type: 'DELETE_ITEM', payload: item }));
+    }
   }
 
   let selectItem = (item) => {

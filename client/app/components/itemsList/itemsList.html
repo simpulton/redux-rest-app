@@ -7,7 +7,7 @@
     {{item.description}}
   </div>
   <div class="mdl-card__menu">
-    <button ng-click="itemListVM.deleted.emit(item); $event.stopPropagation();"
+    <button ng-click="itemListVM.deleteItem(item); $event.stopPropagation();"
             class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
       <i class="material-icons">close</i>
     </button>
