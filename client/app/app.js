@@ -1,5 +1,7 @@
-// CSS
+// Layout
 import 'normalize.css';
+import 'material-design-lite';
+import 'material-design-lite/material.css';
 
 // Angular
 import angular from 'angular';
