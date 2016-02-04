@@ -1,7 +1,7 @@
 {
-  "name": "ng6-starter",
+  "name": "redux-rest-app",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "Simple REST app built with Angular, ng-redux, ES6, Webpack, and Gulp",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.4.4",
@@ -9,11 +9,11 @@
     "angular-ui-router": "^0.2.15",
     "es6-shim": "^0.34.2",
     "json-server": "^0.8.7",
-    "lodash": "^3.8.0",
     "material-design-lite": "^1.1.1",
     "ng-redux": "^3.3.3",
     "normalize.css": "^3.0.3",
-    "redux": "^3.2.1"
+    "redux": "^3.2.1",
+    "redux-thunk": "^1.0.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.15",
@@ -40,7 +40,6 @@
     "node-libs-browser": "^0.5.0",
     "phantomjs-prebuilt": "^2.1.3",
     "raw-loader": "^0.5.1",
-    "redux-thunk": "^1.0.3",
     "run-sequence": "^1.1.0",
     "style-loader": "^0.12.2",
     "stylus-loader": "^1.1.1",
@@ -56,12 +55,18 @@
   "keywords": [
     "angular",
     "webpack",
-    "es6"
+    "es6",
+    "gulp",
+    "ng-redux",
+    "redux"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/simpulton/redux-rest-app.git"
   },
-  "author": "AngularClass",
+  "author": "Lukas Ruebbelke",
+  "contributors": [{
+    "name": "Jonathan Garvey"
+  }],
   "license": "Apache-2.0"
 }

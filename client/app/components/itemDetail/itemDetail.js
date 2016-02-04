@@ -1,10 +1,7 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
 import itemDetailComponent from './itemDetail.component';
 
-let itemDetailModule = angular.module('itemDetail', [
-  uiRouter
-])
+let itemDetailModule = angular.module('itemDetail', [])
 
 .component('itemDetail', itemDetailComponent);
 

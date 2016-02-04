@@ -4,7 +4,6 @@ import './itemDetail.styl';
 
 let itemDetailComponent = {
   restrict: 'E',
-  bindings: {},
   template,
   controller,
   controllerAs: 'itemDetailVM'

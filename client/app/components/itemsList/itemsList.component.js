@@ -4,7 +4,6 @@ import './itemsList.styl';
 
 let itemsListComponent = {
   restrict: 'E',
-  bindings: {},
   template,
   controller,
   controllerAs: 'itemListVM'

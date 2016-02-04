@@ -1,7 +1,7 @@
 //-------------------------------------------------------------------
 // ITEMS STORE
 //-------------------------------------------------------------------
-export const items = (state = [], {type, payload}) => {
+const items = (state = [], {type, payload}) => {
   let index: number;
   switch (type) {
     case 'ADD_ITEMS':
@@ -24,7 +24,7 @@ export const items = (state = [], {type, payload}) => {
 //-------------------------------------------------------------------
 // SELECTED ITEM STORE
 //-------------------------------------------------------------------
-export const selectedItem = (state = null, {type, payload}) => {
+const selectedItem = (state = null, {type, payload}) => {
   switch (type) {
     case 'SELECT_ITEM':
       return payload;
@@ -32,3 +32,5 @@ export const selectedItem = (state = null, {type, payload}) => {
       return state;
   }
 };
+
+export default { items, selectedItem };
